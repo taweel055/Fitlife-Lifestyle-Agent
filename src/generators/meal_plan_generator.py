@@ -4,7 +4,7 @@ from typing import List, Optional
 from datetime import datetime, timedelta
 from ..models import (
     Client, Protocol, DayType, Meal, MealType,
-    DayPlan, WeekPlan
+    DayPlan, WeekPlan, FoodCategory
 )
 from ..calculators import LBMCalculator, MacroCalculator
 from ..database import FoodDatabase
@@ -117,7 +117,7 @@ class MealPlanGenerator:
             if allow_sugary and macros.carbs > 50:
                 # Add sugary options for HIGH days
                 sugary_foods = self.food_db.get_foods_by_category(
-                    self.food_db.FoodCategory.CARB_SUGARY
+                    FoodCategory.CARB_SUGARY
                 )
                 meal.carb_sources.extend([food.name for food in sugary_foods[:2]])
                 meal.notes = "50% of carbs can come from sugary sources on HIGH days"
