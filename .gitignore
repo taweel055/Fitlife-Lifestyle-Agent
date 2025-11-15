@@ -40,6 +40,8 @@ venv.bak/
 output/
 *.md
 !README.md
+!VALIDATION_REPORT.md
+!PROJECT_SUMMARY.md
 
 # Logs
 *.log
