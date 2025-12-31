@@ -1,10 +1,24 @@
-# Fitlife Lifestyle Agent - Meal Plan Generator
+# Fitlife Lifestyle Agent
 
-An automated meal plan generation system for nutrition consulting that supports **SHREDDED** (fat loss) and **MASSIVE** (muscle gain) protocols with supplement prescriptions and bilingual output (English/Arabic).
+A comprehensive fitness assessment platform featuring **Meal Plan Generation** and **Posture Analysis**. Supports SHREDDED (fat loss) and MASSIVE (muscle gain) protocols with supplement prescriptions, plus mobile-friendly posture assessment with corrective exercises.
+
+## Applications
+
+### 1. Meal Plan Generator
+Automated meal plan generation for nutrition consulting with bilingual output (English/Arabic).
+
+### 2. Posture Analysis App (NEW)
+Mobile-friendly web app for comprehensive posture assessment:
+- Works on any smartphone or tablet
+- Camera-based pose capture
+- Multi-angle assessment (front, side, back, overhead squat)
+- Real-time issue detection
+- Personalized corrective exercise programs
+- Downloadable reports
 
 ## Features
 
-### Core Functionality
+### Meal Plan Features
 - ✅ **Client Profile Management** - Collect and store client information
 - ✅ **LBM Calculator** - Automatic lean body mass calculations
 - ✅ **Macro Calculator** - Protocol-specific macronutrient targets
@@ -12,8 +26,15 @@ An automated meal plan generation system for nutrition consulting that supports 
 - ✅ **Food Database** - Comprehensive food library with nutritional info
 - ✅ **Supplement Recommendations** - Goal-based supplement stacks
 - ✅ **Markdown Export** - Professional meal plan documents
-- 🔜 **Arabic Translation** - Bilingual output support (Phase 2)
-- 🔜 **PDF Export** - Branded PDF reports (Phase 2)
+
+### Posture Analysis Features
+- ✅ **Mobile Camera Integration** - Use your phone's camera for assessment
+- ✅ **Guided Pose Capture** - Step-by-step instructions for each pose
+- ✅ **10 Assessment Types** - Front, sides, back, squats, lunges, and more
+- ✅ **25+ Detectable Issues** - Comprehensive posture problem detection
+- ✅ **30+ Corrective Exercises** - Personalized fix recommendations
+- ✅ **Posture Score** - Overall assessment score (0-100)
+- ✅ **Downloadable Reports** - Export your assessment in Markdown format
 
 ### Protocols Supported
 
@@ -50,7 +71,17 @@ python main.py
 
 ## Usage
 
-### Interactive Mode (Recommended)
+### Posture Analysis App (Mobile-Friendly)
+```bash
+streamlit run posture_app.py
+```
+Open the URL on your phone's browser for the best experience. The app will:
+1. Guide you through phone positioning
+2. Help you capture poses from multiple angles
+3. Ask assessment questions for each pose
+4. Generate a comprehensive posture report with fixes
+
+### Meal Plan Generator - Interactive Mode
 ```bash
 python main.py
 ```
@@ -60,6 +91,11 @@ Follow the interactive prompts to:
 2. Select protocol (SHREDDED or MASSIVE)
 3. Choose training days and HIGH days
 4. Generate complete meal plan with supplements
+
+### Meal Plan Web Interface
+```bash
+streamlit run app.py
+```
 
 ### Demo Mode
 Run a quick demo with sample client data:
@@ -105,7 +141,9 @@ MarkdownExporter.save_to_file(week_md, "meal_plan.md")
 ```
 Fitlife-Lifestyle-Agent/
 │
-├── main.py                      # Application entry point
+├── main.py                      # CLI application entry point
+├── app.py                       # Meal plan web interface
+├── posture_app.py               # Posture analysis web app
 ├── requirements.txt             # Python dependencies
 ├── README.md                    # This file
 │
@@ -132,6 +170,12 @@ Fitlife-Lifestyle-Agent/
 │   │
 │   ├── exporters/               # Export functionality
 │   │   └── markdown_exporter.py
+│   │
+│   ├── posture/                 # Posture analysis module
+│   │   ├── __init__.py         # Module exports
+│   │   ├── models.py           # Posture data models
+│   │   ├── analyzer.py         # Posture assessment logic
+│   │   └── issue_database.py   # Issues and corrective exercises
 │   │
 │   └── utils/                   # Utilities
 │       └── input_collector.py  # Interactive input
